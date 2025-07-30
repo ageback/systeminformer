@@ -523,15 +523,15 @@ VOID PhMwpInitializeControls(
 
     PageList = PhCreateList(10);
 
-    PhMwpCreateInternalPage(L"Processes", 0, PhMwpProcessesPageCallback);
+    PhMwpCreateInternalPage(L"进程", 0, PhMwpProcessesPageCallback);
     PhProcessTreeListInitialization();
     PhInitializeProcessTreeList(PhMwpProcessTreeNewHandle);
 
-    PhMwpCreateInternalPage(L"Services", 0, PhMwpServicesPageCallback);
+    PhMwpCreateInternalPage(L"服务", 0, PhMwpServicesPageCallback);
     PhServiceTreeListInitialization();
     PhInitializeServiceTreeList(PhMwpServiceTreeNewHandle);
 
-    PhMwpCreateInternalPage(L"Network", 0, PhMwpNetworkPageCallback);
+    PhMwpCreateInternalPage(L"网络", 0, PhMwpNetworkPageCallback);
     PhNetworkTreeListInitialization();
     PhInitializeNetworkTreeList(PhMwpNetworkTreeNewHandle);
 
@@ -4070,14 +4070,14 @@ VOID PhAddMiniProcessMenuItems(
 
     ioPriorityMenu = PhCreateEMenuItem(0, ID_PROCESS_IOPRIORITY, L"&I/O优先级", NULL, ProcessId);
 
-    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_HIGH, L"&High", NULL, ProcessId), ULONG_MAX);
-    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_NORMAL, L"&Normal", NULL, ProcessId), ULONG_MAX);
-    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_LOW, L"&Low", NULL, ProcessId), ULONG_MAX);
-    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_VERYLOW, L"&Very low", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_HIGH, L"高(&H)", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_NORMAL, L"正常(&N)", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_LOW, L"低(&L)", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(ioPriorityMenu, PhCreateEMenuItem(0, ID_IOPRIORITY_VERYLOW, L"非常低(&V)", NULL, ProcessId), ULONG_MAX);
 
     // Menu
 
-    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_TERMINATE, L"T&erminate", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_TERMINATE, L"终止(&E)", NULL, ProcessId), ULONG_MAX);
 
     if (processItem = PhReferenceProcessItem(ProcessId))
     {
@@ -4087,11 +4087,11 @@ VOID PhAddMiniProcessMenuItems(
     }
 
     if (!isSuspended)
-        PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_SUSPEND, L"&Suspend", NULL, ProcessId), ULONG_MAX);
+        PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_SUSPEND, L"暂停(&S)", NULL, ProcessId), ULONG_MAX);
     if (isPartiallySuspended)
-        PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_RESUME, L"Res&ume", NULL, ProcessId), ULONG_MAX);
+        PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_RESUME, L"恢复(&U)", NULL, ProcessId), ULONG_MAX);
 
-    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_RESTART, L"Res&tart", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_RESTART, L"重新开始(&T)", NULL, ProcessId), ULONG_MAX);
 
     PhInsertEMenuItem(Menu, priorityMenu, ULONG_MAX);
 
@@ -4100,7 +4100,7 @@ VOID PhAddMiniProcessMenuItems(
 
     PhMwpSetProcessMenuPriorityChecks(Menu, ProcessId, TRUE, TRUE, FALSE);
 
-    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_PROPERTIES, L"P&roperties", NULL, ProcessId), ULONG_MAX);
+    PhInsertEMenuItem(Menu, PhCreateEMenuItem(0, ID_PROCESS_PROPERTIES, L"属性(&R)", NULL, ProcessId), ULONG_MAX);
 }
 
 BOOLEAN PhHandleMiniProcessMenuItem(
@@ -4164,7 +4164,7 @@ BOOLEAN PhHandleMiniProcessMenuItem(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;
@@ -4183,7 +4183,7 @@ BOOLEAN PhHandleMiniProcessMenuItem(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;
@@ -4407,7 +4407,7 @@ VOID PhShowDetailsForIconNotification(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;
@@ -4428,7 +4428,7 @@ VOID PhShowDetailsForIconNotification(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The service does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该服务不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;

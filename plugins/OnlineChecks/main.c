@@ -149,7 +149,7 @@ VOID NTAPI MainMenuInitializingCallback(
     if (menuInfo->u.MainMenu.SubMenuIndex != PH_MENU_ITEM_LOCATION_TOOLS)
         return;
 
-    onlineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&Online Checks", NULL);
+    onlineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"在线检查(&O)", NULL);
     //PhInsertEMenuItem(onlineMenuItem, enableMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, ENABLE_SERVICE_VIRUSTOTAL, L"&Enable VirusTotal scanning", NULL), ULONG_MAX);
     //PhInsertEMenuItem(onlineMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
     PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, MENUITEM_HYBRIDANALYSIS_UPLOAD_FILE, L"Upload file to &Hybrid-Analysis...", NULL), ULONG_MAX);
@@ -613,8 +613,8 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Online Checks";
-            info->Description = L"Allows files to be checked with online services.";
+            info->DisplayName = L"在线检查";
+            info->Description = L"允许使用在线服务检查文件。";
 
             PhRegisterCallback(
                 PhGetPluginCallback(PluginInstance, PluginCallbackLoad),

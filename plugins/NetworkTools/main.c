@@ -289,7 +289,7 @@ VOID NTAPI MainMenuInitializingCallback(
     if (menuInfo->u.MainMenu.SubMenuIndex != PH_MENU_ITEM_LOCATION_TOOLS)
         return;
 
-    networkToolsMenu = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&Network Tools", NULL);
+    networkToolsMenu = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"网络工具(&N)", NULL);
     PhInsertEMenuItem(networkToolsMenu, PhPluginCreateEMenuItem(PluginInstance, 0, MAINMENU_ACTION_GEOIP_UPDATE, L"&GeoLite database update...", NULL), ULONG_MAX);
     PhInsertEMenuItem(networkToolsMenu, PhCreateEMenuSeparator(), ULONG_MAX);
     PhInsertEMenuItem(networkToolsMenu, PhPluginCreateEMenuItem(PluginInstance, 0, MAINMENU_ACTION_PING, L"&Ping address...", NULL), ULONG_MAX);
@@ -1022,7 +1022,7 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Network Tools";
+            info->DisplayName = L"网络工具";
             info->Description = L"Provides ping, traceroute and whois for network connections.";
             info->Interface = &PluginInterface;
 
