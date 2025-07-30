@@ -1561,13 +1561,13 @@ VOID PhInitializeTreeNewColumnMenuEx(
     Data->Selection = NULL;
     Data->ProcessedId = 0;
 
-    sizeColumnToFitMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_SIZE_COLUMN_TO_FIT_ID, L"Size column to fit", NULL, NULL);
-    sizeAllColumnsToFitMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_SIZE_ALL_COLUMNS_TO_FIT_ID, L"Size all columns to fit", NULL, NULL);
+    sizeColumnToFitMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_SIZE_COLUMN_TO_FIT_ID, L"调整列大小以适应", NULL, NULL);
+    sizeAllColumnsToFitMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_SIZE_ALL_COLUMNS_TO_FIT_ID, L"调整所有列的大小以适合", NULL, NULL);
 
     if (!(Flags & PH_TN_COLUMN_MENU_NO_VISIBILITY))
     {
-        hideColumnMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_HIDE_COLUMN_ID, L"Hide column", NULL, NULL);
-        chooseColumnsMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_CHOOSE_COLUMNS_ID, L"Choose columns...", NULL, NULL);
+        hideColumnMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_HIDE_COLUMN_ID, L"隐藏列", NULL, NULL);
+        chooseColumnsMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_CHOOSE_COLUMNS_ID, L"选择列...", NULL, NULL);
     }
 
     if (Flags & PH_TN_COLUMN_MENU_SHOW_RESET_SORT)
@@ -1578,7 +1578,7 @@ VOID PhInitializeTreeNewColumnMenuEx(
         TreeNew_GetSort(Data->TreeNewHandle, &sortColumn, &sortOrder);
 
         if (sortOrder != Data->DefaultSortOrder || (Data->DefaultSortOrder != NoSortOrder && sortColumn != Data->DefaultSortColumn))
-            resetSortMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_RESET_SORT_ID, L"Reset sort", NULL, NULL);
+            resetSortMenuItem = PhCreateEMenuItem(0, PH_TN_COLUMN_MENU_RESET_SORT_ID, L"重置排序", NULL, NULL);
     }
 
     PhInsertEMenuItem(Data->Menu, sizeColumnToFitMenuItem, ULONG_MAX);
@@ -1911,7 +1911,7 @@ BOOLEAN PhInsertCopyCellEMenuItem(
 
     PhInitializeStringRefLongHint(&columnText, Column->Text);
     escapedText = PhEscapeStringForMenuPrefix(&columnText);
-    PhInitFormatS(&format[0], L"Copy \""); // Copy \"%s\"
+    PhInitFormatS(&format[0], L"复制 \""); // Copy \"%s\"
     PhInitFormatSR(&format[1], escapedText->sr);
     PhInitFormatS(&format[2], L"\"");
     menuItemText = PhFormat(format, RTL_NUMBER_OF(format), 0);
@@ -2046,7 +2046,7 @@ BOOLEAN PhInsertCopyListViewEMenuItem(
     indexInParent++;
 
     escapedText = PhEscapeStringForMenuPrefix(&columnText);
-    PhInitFormatS(&format[0], L"Copy \""); // Copy \"%s\"
+    PhInitFormatS(&format[0], L"复制 \""); // Copy \"%s\"
     PhInitFormatSR(&format[1], escapedText->sr);
     PhInitFormatS(&format[2], L"\"");
     menuItemText = PhFormat(format, RTL_NUMBER_OF(format), 0);
@@ -2120,7 +2120,7 @@ BOOLEAN PhInsertCopyIListViewEMenuItem(
     indexInParent++;
 
     escapedText = PhEscapeStringForMenuPrefix(&columnText);
-    PhInitFormatS(&format[0], L"Copy \""); // Copy \"%s\"
+    PhInitFormatS(&format[0], L"复制 \""); // Copy \"%s\"
     PhInitFormatSR(&format[1], escapedText->sr);
     PhInitFormatS(&format[2], L"\"");
     menuItemText = PhFormat(format, RTL_NUMBER_OF(format), 0);
@@ -2316,7 +2316,7 @@ VOID PhShellOpenKey(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+        PhShowStatus(WindowHandle, L"无法执行该程序。", status, 0);
         return;
     }
 
@@ -2346,7 +2346,7 @@ VOID PhShellOpenKey(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+            PhShowStatus(WindowHandle, L"无法执行该程序。", status, 0);
         }
     }
     else
@@ -2364,7 +2364,7 @@ VOID PhShellOpenKey(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+            PhShowStatus(WindowHandle, L"无法执行该程序。", status, 0);
         }
     }
 

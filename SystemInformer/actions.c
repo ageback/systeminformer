@@ -1214,13 +1214,13 @@ VOID PhUiCreateSessionMenu(
         PhDereferenceObject(escapedMenuText);
         PhDereferenceObject(entry->UserName);
 
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_CONNECT, L"&Connect", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_DISCONNECT, L"&Disconnect", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_LOGOFF, L"&Logoff", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_REMOTECONTROL, L"Rem&ote control", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_SENDMESSAGE, L"Send &message...", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_CONNECT, L"连接(&C)", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_DISCONNECT, L"断开(&D)", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_LOGOFF, L"注销(&L)", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_REMOTECONTROL, L"远程控制(&O)", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_SENDMESSAGE, L"发送消息(&M)...", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(userMenu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_PROPERTIES, L"P&roperties", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_PROPERTIES, L"属性(&R)", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(UsersMenuItem, userMenu, ULONG_MAX);
     }
 
@@ -1243,8 +1243,8 @@ BOOLEAN PhUiConnectSession(
 
     while (PhaChoiceDialog(
         WindowHandle,
-        L"Connect to session",
-        L"Password:",
+        L"连接到传话",
+        L"密码:",
         NULL,
         0,
         NULL,
@@ -1269,7 +1269,7 @@ BOOLEAN PhUiConnectSession(
         }
         else
         {
-            if (!PhShowContinueStatus(WindowHandle, L"Unable to connect to the session", 0, GetLastError()))
+            if (!PhShowContinueStatus(WindowHandle, L"无法连接到传话", 0, GetLastError()))
                 break;
         }
     }
@@ -1291,7 +1291,7 @@ BOOLEAN PhUiDisconnectSession(
     if (WinStationDisconnect(WINSTATION_CURRENT_SERVER, SessionId, FALSE))
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to disconnect the session", 0, GetLastError());
+        PhShowStatus(WindowHandle, L"无法断开传话", 0, GetLastError());
 
     return FALSE;
 }
@@ -1303,8 +1303,8 @@ BOOLEAN PhUiLogoffSession(
 {
     if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
         WindowHandle,
-        L"logoff",
-        L"the user",
+        L"注销",
+        L"用户",
         NULL,
         FALSE
         ))
@@ -1312,7 +1312,7 @@ BOOLEAN PhUiLogoffSession(
         if (WinStationReset(WINSTATION_CURRENT_SERVER, SessionId, FALSE))
             return TRUE;
         else
-            PhShowStatus(WindowHandle, L"Unable to logoff the session", 0, GetLastError());
+            PhShowStatus(WindowHandle, L"无法注销传话", 0, GetLastError());
     }
 
     return FALSE;
