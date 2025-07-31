@@ -774,7 +774,7 @@ VOID ShowGeoLiteUpdateDialog(
 {
     if (!GeoLiteCheckUpdatePlatformSupported())
     {
-        PhShowError2(ParentWindowHandle, L"The GeoLite updater doesn't support legacy versions of Windows.", L"%s", L"");
+        PhShowError2(ParentWindowHandle, L"GeoLite 更新程序不支持旧版本的 Windows。", L"%s", L"");
         return;
     }
 
@@ -794,13 +794,13 @@ VOID ShowGeoLiteUpdateDialog(
         config.pfCallback = GeoLiteMissingKeyTaskDialogCallbackProc;
         config.cxWidth = 200;
 
-        config.pszWindowTitle = L"Network Tools - GeoLite Updater";
-        config.pszMainInstruction = L"Unable to download GeoLite database updates.";
+        config.pszWindowTitle = L"网络工具 - GeoLite 更新程序";
+        config.pszMainInstruction = L"无法下载 GeoLite 数据库更新";
         config.pszContent =
-            L"A license key and account number are required to download GeoLite database updates and either the key or number are not configured.\n\n"
-            L"GeoLite license keys and accounts are free. If you're unsure how to create keys then please review the documentation here: <a href=\"https://support.maxmind.com/hc/en-us/articles/4407111582235-Generate-a-License-Key\">Generate-a-License-Key</a>\n\n"
-            L"Once you've created the key you can copy/paste the text into the Options window > NetworkTools settings and System Informer can start downloading GeoLite database updates.\n\n"
-            L"Special thanks to MaxMind (<a href=\"http://www.maxmind.com\">http://www.maxmind.com</a>) for continuing free GeoLite services <3";
+            L"下载 GeoLite 数据库更新需要许可证密钥和帐号，但密钥或帐号尚未配置。\n\n"
+            L"GeoLite 许可证密钥和帐号均免费。如果您不确定如何创建密钥，请查看此处的文档：<a href=\"https://support.maxmind.com/hc/en-us/articles/4407111582235-Generate-a-License-Key\">Generate-a-License-Key</a>\n\n"
+            L"创建密钥后，您可以将文本复制/粘贴到“选项”窗口 >“网络工具”设置中，然后“系统通知器”即可开始下载 GeoLite 数据库更新。\n\n"
+            L"特别感谢 MaxMind (<a href=\"http://www.maxmind.com\">http://www.maxmind.com</a>) 继续提供免费的 GeoLite 服务 <3";
 
         PhShowTaskDialog(&config, NULL, NULL, NULL);
     }
@@ -813,7 +813,7 @@ VOID ShowGeoLiteUpdateDialog(
         {
             if (!NT_SUCCESS(PhCreateThreadEx(&UpdateDialogThreadHandle, GeoLiteUpdateTaskDialogThread, ParentWindowHandle)))
             {
-                PhShowError2(ParentWindowHandle, L"Unable to create the window.", L"%s", L"");
+                PhShowError2(ParentWindowHandle, L"无法创建窗口。", L"%s", L"");
                 return;
             }
 

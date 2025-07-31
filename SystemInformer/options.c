@@ -415,7 +415,7 @@ INT_PTR CALLBACK PhOptionsDialogProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_WARNING_ICON,
-                        L"Do you want to reset all settings and restart System Informer?",
+                        L"您是否要重置所有设置并重新启动 System Informer？",
                         L""
                         ) == IDYES)
                     {
@@ -449,7 +449,7 @@ INT_PTR CALLBACK PhOptionsDialogProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_INFORMATION_ICON,
-                        L"Do you want to clean up unused settings?",
+                        L"您想清除未使用的设置吗？",
                         L""
                         ) == IDYES)
                     {
@@ -984,14 +984,14 @@ VOID PhpSetDefaultTaskManager(
 
     if (PhpIsDefaultTaskManager())
     {
-        message = L"Do you want to restore the default Windows Task Manager?";
+        message = L"您想恢复默认的 Windows 任务管理器吗？";
     }
     else
     {
-        message = L"Do you want to make System Informer the default Windows Task Manager?";
+        message = L"您想将 System Informer 设为默认的 Windows 任务管理器吗？";
 
         // Warn the user when we're not installed into secure location. (dmex)
-        if (!PhShowOptionsDefaultInstallLocation(ParentWindowHandle, L"Changing the default Task Manager"))
+        if (!PhShowOptionsDefaultInstallLocation(ParentWindowHandle, L"更改默认任务管理器"))
         {
             return;
         }
@@ -1052,7 +1052,7 @@ VOID PhpSetDefaultTaskManager(
         }
 
         if (!NT_SUCCESS(status))
-            PhShowStatus(ParentWindowHandle, L"Unable to replace Task Manager", status, 0);
+            PhShowStatus(ParentWindowHandle, L"无法替换任务管理器", status, 0);
 
         //PhSaveSettings2(PhSettingsFileName);
     }
@@ -1531,8 +1531,8 @@ static VOID PhpOptionsNotifyChangeCallback(
             PhMainWndHandle,
             TD_YES_BUTTON | TD_NO_BUTTON,
             TD_INFORMATION_ICON,
-            L"One or more options you have changed requires a restart of System Informer.",
-            L"Do you want to restart System Informer now?"
+            L"您更改的一个或多个选项需要重新启动 System Informer。",
+            L"您想立即重新启动 System Informer 吗？"
             ) == IDYES)
         {
             SystemInformer_PrepareForEarlyShutdown();
@@ -1565,8 +1565,8 @@ VOID PhShowOptionsRestartRequired(
         PhMainWndHandle,
         TD_YES_BUTTON | TD_NO_BUTTON,
         TD_INFORMATION_ICON,
-        L"One or more options you have changed requires a restart of System Informer.",
-        L"Do you want to restart System Informer now?"
+        L"您更改的一个或多个选项需要重新启动 System Informer。",
+        L"您想立即重新启动 System Informer 吗？"
         ) == IDYES)
     {
         SystemInformer_PrepareForEarlyShutdown();
@@ -1613,8 +1613,8 @@ BOOLEAN PhShowOptionsDefaultInstallLocation(
                         ParentWindowHandle,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_WARNING_ICON,
-                        L"WARNING: You have not installed System Informer into a secure location.",
-                        L"%s is not recommended when running System Informer from outside a secure location (e.g. Program Files).\r\n\r\nAre you sure you want to continue?",
+                        L"警告：您尚未将 System Informer 安装到安全位置。",
+                        L"当从安全位置（例如 Program Files）之外运行 System Informer 时，不建议使用 %s。\r\n\r\n您确定要继续吗？",
                         Message
                         ) == IDNO)
                     {
@@ -2054,9 +2054,9 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                         {
                                             PhShowInformation2(
                                                 PhOptionsWindowHandle,
-                                                L"Unable to configure this option.",
+                                                L"无法配置此选项。",
                                                 L"%s",
-                                                L"You need to enable at minimum one tray icon (View menu > Tray Icons) before enabling the hide option."
+                                                L"在启用隐藏选项之前，您需要启用至少一个托盘图标（查看菜单 > 托盘图标）。"
                                                 );
                                             SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
                                             return TRUE;
@@ -2071,9 +2071,9 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                         {
                                             PhShowInformation2(
                                                 PhOptionsWindowHandle,
-                                                L"Unable to enable option start as admin.",
+                                                L"无法启用以管理员身份启动选项。",
                                                 L"%s",
-                                                L"You need to enable this option with administrative privileges."
+                                                L"您需要以管理员权限启用此选项。"
                                                 );
 
                                             SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
@@ -2086,7 +2086,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                             HRESULT status;
                                             PPH_STRING quotedFileName;
 
-                                            if (!PhShowOptionsDefaultInstallLocation(PhOptionsWindowHandle, L"Enabling the 'start as admin' option"))
+                                            if (!PhShowOptionsDefaultInstallLocation(PhOptionsWindowHandle, L"启用“以管理员身份启动”选项"))
                                             {
                                                 SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
                                                 return TRUE;
@@ -2107,7 +2107,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                             {
                                                 PhShowStatus(
                                                     PhOptionsWindowHandle,
-                                                    L"Unable to enable start as admin.",
+                                                    L"无法启用以管理员身份启动。",
                                                     0,
                                                     HRESULT_CODE(status)
                                                     );
@@ -2228,7 +2228,7 @@ static INT_PTR CALLBACK PhpOptionsAdvancedEditDlgProc(
 
             PhSetApplicationWindowIcon(hwndDlg);
 
-            PhSetWindowText(hwndDlg, L"Setting Editor");
+            PhSetWindowText(hwndDlg, L"设置编辑器");
             PhCenterWindow(hwndDlg, GetParent(hwndDlg));
 
             PhSetWindowContext(hwndDlg, PH_WINDOW_CONTEXT_DEFAULT, setting);
@@ -3071,7 +3071,7 @@ INT_PTR CALLBACK PhpOptionsAdvancedDlgProc(
             PhCreateSearchControl(
                 hwndDlg,
                 context->SearchBoxHandle,
-                L"Search settings...",
+                L"搜索设置...",
                 PhpOptionsAdvancedSearchControlCallback,
                 context
                 );
@@ -3125,11 +3125,11 @@ INT_PTR CALLBACK PhpOptionsAdvancedDlgProc(
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_FILTEROPTIONS), &rect);
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, hidemodifiedMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIDE_MODIFIED, L"Hide modified", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, hidedefaultMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIDE_DEFAULT, L"Hide default", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, hidemodifiedMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIDE_MODIFIED, L"隐藏修改的", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, hidedefaultMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIDE_DEFAULT, L"隐藏默认", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, highlightmodifiedMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIGHLIGHT_MODIFIED, L"Highlight modified", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, highlightdefaultMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIGHLIGHT_DEFAULT, L"Highlight default", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, highlightmodifiedMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIGHLIGHT_MODIFIED, L"高亮修改的", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, highlightdefaultMenuItem = PhCreateEMenuItem(0, PH_OPTIONS_ADVANCED_TREE_ITEM_MENU_HIGHLIGHT_DEFAULT, L"高亮默认", NULL, NULL), ULONG_MAX);
 
                     if (context->HideModified)
                         hidemodifiedMenuItem->Flags |= PH_EMENU_CHECKED;
@@ -3245,9 +3245,9 @@ INT_PTR CALLBACK PhpOptionsAdvancedDlgProc(
                     PPH_EMENU_ITEM item;
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"&Reset", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"重置(&R)", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"&Copy\bCtrl+C", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"复制(&C)\bCtrl+C", NULL, NULL), ULONG_MAX);
                     PhInsertCopyCellEMenuItem(menu, IDC_COPY, context->TreeNewHandle, contextMenuEvent->Column);
 
                     item = PhShowEMenu(
@@ -3305,34 +3305,34 @@ typedef struct _COLOR_ITEM
 
 static COLOR_ITEM ColorItems[] =
 {
-    COLOR_ITEM(L"ColorOwnProcesses", L"Own processes", L"Processes running under the same user account as System Informer."),
-    COLOR_ITEM(L"ColorSystemProcesses", L"System processes", L"Processes running under the NT AUTHORITY\\SYSTEM user account."),
-    COLOR_ITEM(L"ColorServiceProcesses", L"Service processes", L"Processes which host one or more services."),
-    COLOR_ITEM(L"ColorBackgroundProcesses", L"Background processes", L"Processes with a background scheduling priority."),
-    COLOR_ITEM(L"ColorJobProcesses", L"Job processes", L"Processes associated with a job."),
+    COLOR_ITEM(L"ColorOwnProcesses", L"自身进程", L"与 System Informer 使用相同用户帐户运行的进程。"),
+    COLOR_ITEM(L"ColorSystemProcesses", L"系统进程", L"使用 NT AUTHORITY\\SYSTEM 用户帐户运行的进程。"),
+    COLOR_ITEM(L"ColorServiceProcesses", L"服务进程", L"承载一个或多个服务的进程。"),
+    COLOR_ITEM(L"ColorBackgroundProcesses", L"后台进程", L"具有后台调度优先级的进程。"),
+    COLOR_ITEM(L"ColorJobProcesses", L"作业进程", L"与作业关联的进程。"),
 #ifdef _WIN64
-    COLOR_ITEM(L"ColorWow64Processes", L"32-bit processes", L"Processes running under WOW64, i.e. 32-bit."),
+    COLOR_ITEM(L"ColorWow64Processes", L"32 位进程", L"使用 WOW64 运行的进程，即32 位。"),
 #endif
-    COLOR_ITEM(L"ColorDebuggedProcesses", L"Debugged processes", L"Processes that are currently being debugged."),
-    COLOR_ITEM(L"ColorElevatedProcesses", L"Elevated processes", L"Processes with full privileges on a system with UAC enabled."),
-    COLOR_ITEM(L"ColorUIAccessProcesses", L"UIAccess processes", L"Processes with UIAccess privileges."),
-    COLOR_ITEM(L"ColorPicoProcesses", L"Pico processes", L"Processes that belong to the Windows subsystem for Linux."),
-    COLOR_ITEM(L"ColorImmersiveProcesses", L"Immersive processes and DLLs", L"Processes and DLLs that belong to a Modern UI app."),
-    COLOR_ITEM(L"ColorSuspended", L"Suspended processes and threads", L"Processes and threads that are suspended from execution."),
-    COLOR_ITEM(L"ColorPartiallySuspended", L"Partially suspended processes and threads", L"Processes and threads that are partially suspended from execution."),
-    COLOR_ITEM(L"ColorDotNet", L".NET processes and DLLs", L".NET (i.e. managed) processes and DLLs."),
-    COLOR_ITEM(L"ColorPacked", L"Packed processes", L"Executables are sometimes \"packed\" to reduce their size."),
-    COLOR_ITEM(L"ColorLowImageCoherency", L"Low process image coherency", L"The image file backing the process has low coherency when compared to the mapped image."),
-    COLOR_ITEM(L"ColorGuiThreads", L"GUI threads", L"Threads that have made at least one GUI-related system call."),
-    COLOR_ITEM(L"ColorRelocatedModules", L"Relocated DLLs", L"DLLs that were not loaded at their preferred image bases."),
-    COLOR_ITEM(L"ColorProtectedHandles", L"Protected handles", L"Handles that are protected from being closed."),
-    COLOR_ITEM(L"ColorProtectedProcess", L"Protected processes", L"Processes with built-in protection levels."),
-    COLOR_ITEM(L"ColorInheritHandles", L"Inheritable handles", L"Handles that can be inherited by child processes."),
-    COLOR_ITEM(L"ColorHandleFiltered", L"Filtered processes", L"Processes that are protected by handle object callbacks."),
-    COLOR_ITEM(L"ColorUnknown", L"Untrusted DLLs and Services", L"Services and DLLs which are not digitally signed."),
-    COLOR_ITEM(L"ColorServiceDisabled", L"Disabled Services", L"Services which have been disabled."),
-    //COLOR_ITEM(L"ColorServiceStop", L"Stopped Services", L"Services that are not running.")
-    COLOR_ITEM(L"ColorEfficiencyMode", L"Power efficiency", L"Processes and threads with power efficiency."),
+    COLOR_ITEM(L"ColorDebuggedProcesses", L"已调试进程", L"当前正在调试的进程。"),
+    COLOR_ITEM(L"ColorElevatedProcesses", L"已提升的进程", L"在启用 UAC 的系统上具有完全权限的进程。"),
+    COLOR_ITEM(L"ColorUIAccessProcesses", L"UIAccess 进程", L"具有 UIAccess 权限的进程。"),
+    COLOR_ITEM(L"ColorPicoProcesses", L"Pico 进程", L"属于 Linux 的 Windows 子系统的进程。"),
+    COLOR_ITEM(L"ColorImmersiveProcesses", L"沉浸式进程和 DLL", L"属于 Modern UI 应用的进程和 DLL。"),
+    COLOR_ITEM(L"ColorSuspended", L"已暂停的进程和线程", L"已暂停执行的进程和线程。"),
+    COLOR_ITEM(L"ColorPartiallySuspended", L"部分暂停的进程和线程", L"部分暂停执行的进程和线程。"),
+    COLOR_ITEM(L"ColorDotNet", L"NET 进程和 DLL", L"NET（即托管）进程和 DLL。"),
+    COLOR_ITEM(L"ColorPacked", L"打包的进程", L"可执行文件有时会被“打包”以减小其大小。"),
+    COLOR_ITEM(L"ColorLowImageCoherency", L"进程映像一致性低", L"与映射映像相比，支持该进程的映像文件的一致性较低。"),
+    COLOR_ITEM(L"ColorGuiThreads", L"GUI 线程", L"至少进行了一次 GUI 相关系统调用的线程。"),
+    COLOR_ITEM(L"ColorRelocatedModules", L"重定位的 DLL", L"未加载到其首选映像库。"),
+    COLOR_ITEM(L"ColorProtectedHandles", L"受保护的句柄", L"受保护而无法关闭的句柄。"),
+    COLOR_ITEM(L"ColorProtectedProcess", L"受保护的进程", L"具有内置保护级别的进程。"),
+    COLOR_ITEM(L"ColorInheritHandles", L"可继承的句柄", L"可由子进程继承的句柄。"),
+    COLOR_ITEM(L"ColorHandleFiltered", L"已过滤的进程", L"受句柄对象回调保护的进程。"),
+    COLOR_ITEM(L"ColorUnknown", L"不受信任的 DLL 和服务", L"未经数字签名的服务和 DLL。"),
+    COLOR_ITEM(L"ColorServiceDisabled", L"已禁用的服务", L"已被禁用的服务。"),
+    //COLOR_ITEM(L"ColorServiceStop", L"已停止的服务", L"未运行的服务。"),
+    COLOR_ITEM(L"ColorEfficiencyMode", L"电源效率", L"具有电源效率的进程和线程。"),
 };
 
 COLORREF NTAPI PhpColorItemColorFunction(
@@ -3539,7 +3539,7 @@ INT_PTR CALLBACK PhpOptionsHighlightingDlgProc(
                 if (ColorItem = PhGetSelectedListViewItemParam(HighlightingListViewHandle))
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"&Reset", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"重置(&R)", NULL, NULL), ULONG_MAX);
 
                     item = PhShowEMenu(
                         menu,
@@ -3586,7 +3586,7 @@ INT_PTR CALLBACK PhpOptionsHighlightingDlgProc(
                 point.y = GET_Y_LPARAM(lParam);
 
                 menu = PhCreateEMenu();
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"&Reset", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"重置(&R)", NULL, NULL), ULONG_MAX);
 
                 item = PhShowEMenu(
                     menu,
@@ -3629,15 +3629,15 @@ INT_PTR CALLBACK PhpOptionsHighlightingDlgProc(
 
 static COLOR_ITEM PhpOptionsGraphColorItems[] =
 {
-    COLOR_ITEM(L"ColorCpuKernel", L"CPU kernel", L"CPU kernel"),
-    COLOR_ITEM(L"ColorCpuUser", L"CPU user", L"CPU user"),
-    COLOR_ITEM(L"ColorIoReadOther", L"I/O R+O", L"I/O R+O"),
-    COLOR_ITEM(L"ColorIoWrite", L"I/O W", L"I/O W"),
-    COLOR_ITEM(L"ColorPrivate", L"Private bytes", L"Private bytes"),
-    COLOR_ITEM(L"ColorPhysical", L"Physical memory", L"Physical memory"),
-    COLOR_ITEM(L"ColorPowerUsage", L"Power usage", L"Power usage"),
-    COLOR_ITEM(L"ColorTemperature", L"Temperature", L"Temperature"),
-    COLOR_ITEM(L"ColorFanRpm", L"Fan RPM", L"Fan RPM"),
+    COLOR_ITEM(L"ColorCpuKernel", L"CPU 内核", L"CPU 内核"),
+    COLOR_ITEM(L"ColorCpuUser", L"CPU 用户", L"CPU 用户"),
+    COLOR_ITEM(L"ColorIoReadOther", L"I/O 读+写", L"I/O 读+写"),
+    COLOR_ITEM(L"ColorIoWrite", L"I/O 写", L"I/O 写"),
+    COLOR_ITEM(L"ColorPrivate", L"私有字节", L"私有字节"),
+    COLOR_ITEM(L"ColorPhysical", L"物理内存", L"物理内存"),
+    COLOR_ITEM(L"ColorPowerUsage", L"功耗", L"功耗"),
+    COLOR_ITEM(L"ColorTemperature", L"温度", L"温度"),
+    COLOR_ITEM(L"ColorFanRpm", L"风扇转速", L"风扇转速"),
 };
 static HWND PhpGraphListViewHandle = NULL;
 
@@ -3800,7 +3800,7 @@ INT_PTR CALLBACK PhpOptionsGraphsDlgProc(
                 if (ColorItem = PhGetSelectedListViewItemParam(PhpGraphListViewHandle))
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"&Reset", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_RESET, L"重置(&R)", NULL, NULL), ULONG_MAX);
 
                     item = PhShowEMenu(
                         menu,
