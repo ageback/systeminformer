@@ -1795,7 +1795,7 @@ VOID InitializeDevicesTab(
     DeviceTreeUpdateCachedSettings(TRUE);
 
     RtlZeroMemory(&page, sizeof(PH_MAIN_TAB_PAGE));
-    PhInitializeStringRef(&page.Name, L"Devices");
+    PhInitializeStringRef(&page.Name, L"设备");
     page.Callback = DevicesTabPageCallback;
     DevicesAddedTabPage = PhPluginCreateTabPage(&page);
 
@@ -1804,7 +1804,7 @@ VOID InitializeDevicesTab(
         PTOOLSTATUS_TAB_INFO tabInfo;
 
         tabInfo = ToolStatusInterface->RegisterTabInfo(DevicesAddedTabPage->Index);
-        tabInfo->BannerText = L"Search Devices";
+        tabInfo->BannerText = L"搜索设备";
         tabInfo->ActivateContent = ToolStatusActivateContent;
         tabInfo->GetTreeNewHandle = ToolStatusGetTreeNewHandle;
     }

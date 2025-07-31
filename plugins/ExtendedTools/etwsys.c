@@ -49,14 +49,14 @@ VOID EtEtwSystemInformationInitializing(
     PH_SYSINFO_SECTION section;
 
     memset(&section, 0, sizeof(PH_SYSINFO_SECTION));
-    PhInitializeStringRef(&section.Name, L"Disk");
+    PhInitializeStringRef(&section.Name, L"磁盘");
     section.Flags = 0;
     section.Callback = EtpDiskSysInfoSectionCallback;
 
     DiskSection = Pointers->CreateSection(&section);
 
     memset(&section, 0, sizeof(PH_SYSINFO_SECTION));
-    PhInitializeStringRef(&section.Name, L"Network");
+    PhInitializeStringRef(&section.Name, L"网络");
     section.Flags = 0;
     section.Callback = EtpNetworkSysInfoSectionCallback;
 

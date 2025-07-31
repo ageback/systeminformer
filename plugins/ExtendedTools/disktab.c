@@ -42,7 +42,7 @@ VOID EtInitializeDiskTab(
     PH_MAIN_TAB_PAGE page;
 
     memset(&page, 0, sizeof(PH_MAIN_TAB_PAGE));
-    PhInitializeStringRef(&page.Name, L"Disk");
+    PhInitializeStringRef(&page.Name, L"磁盘");
     page.Callback = EtpDiskPageCallback;
     DiskPage = PhPluginCreateTabPage(&page);
 
@@ -51,7 +51,7 @@ VOID EtInitializeDiskTab(
         PTOOLSTATUS_TAB_INFO tabInfo;
 
         tabInfo = ToolStatusInterface->RegisterTabInfo(DiskPage->Index);
-        tabInfo->BannerText = L"Search Disk";
+        tabInfo->BannerText = L"搜索磁盘";
         tabInfo->ActivateContent = EtpToolStatusActivateContent;
         tabInfo->GetTreeNewHandle = EtpToolStatusGetTreeNewHandle;
     }
@@ -130,7 +130,7 @@ BOOLEAN EtpDiskPageCallback(
                     {
                         DiskTreeErrorText = PhFormatString(
                             L"%s %s (%lu)",
-                            L"Unable to start the kernel event tracing session: ",
+                            L"无法启动内核事件跟踪会话：",
                             statusMessage->Buffer,
                             EtEtwStatus
                             );
@@ -140,7 +140,7 @@ BOOLEAN EtpDiskPageCallback(
                     {
                         DiskTreeErrorText = PhFormatString(
                             L"%s (%lu)",
-                            L"Unable to start the kernel event tracing session: ",
+                            L"无法启动内核事件跟踪会话：",
                             EtEtwStatus
                             );
                     }

@@ -115,7 +115,7 @@ BOOLEAN FwTabPageCallback(
                     {
                         EtFwStatusText = PhFormatString(
                             L"%s %s (%lu)",
-                            L"Unable to start the firewall event tracing session: ",
+                            L"无法启动防火墙事件跟踪会话：",
                             statusMessage->Buffer,
                             EtFwStatus);
                         PhDereferenceObject(statusMessage);
@@ -124,7 +124,7 @@ BOOLEAN FwTabPageCallback(
                     {
                         EtFwStatusText = PhFormatString(
                             L"%s (%lu)",
-                            L"Unable to start the firewall event tracing session: ",
+                            L"无法启动防火墙事件跟踪会话：",
                             EtFwStatus);
                     }
 
@@ -229,7 +229,7 @@ VOID EtInitializeFirewallTab(
     PH_MAIN_TAB_PAGE page;
 
     memset(&page, 0, sizeof(PH_MAIN_TAB_PAGE));
-    PhInitializeStringRef(&page.Name, L"Firewall");
+    PhInitializeStringRef(&page.Name, L"防火墙");
     page.Callback = FwTabPageCallback;
     EtFwAddedTabPage = PhPluginCreateTabPage(&page);
 
@@ -238,7 +238,7 @@ VOID EtInitializeFirewallTab(
         PTOOLSTATUS_TAB_INFO tabInfo;
 
         tabInfo = EtFwToolStatusInterface->RegisterTabInfo(EtFwAddedTabPage->Index);
-        tabInfo->BannerText = L"Search Firewall";
+        tabInfo->BannerText = L"搜索防火墙";
         tabInfo->ActivateContent = FwToolStatusActivateContent;
         tabInfo->GetTreeNewHandle = FwToolStatusGetTreeNewHandle;
     }

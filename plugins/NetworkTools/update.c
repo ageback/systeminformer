@@ -212,7 +212,7 @@ BOOLEAN GeoLiteDownloadUpdateToFile(
     if (!NT_SUCCESS(status = PhHttpSendRequest(httpContext, NULL, 0, 0)))
         goto CleanupExit;
 
-    SetDialogStatusText(Context->DialogHandle, L"Waiting for response...");
+    SetDialogStatusText(Context->DialogHandle, L"等待响应...");
 
     if (!NT_SUCCESS(status = PhHttpReceiveResponse(httpContext)))
         goto CleanupExit;
