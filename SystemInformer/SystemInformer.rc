@@ -1140,8 +1140,8 @@ BEGIN
     RTEXT           "Static",IDC_ZLISTZEROED_V,304,11,47,8,SS_ENDELLIPSIS
     RTEXT           "Static",IDC_ZLISTFREE_V,302,21,49,8,SS_ENDELLIPSIS
     RTEXT           "Static",IDC_ZLISTMODIFIED_V,298,31,53,8,SS_ENDELLIPSIS
-    LTEXT           "已释放",IDC_STATIC,242,21,16,8
-    LTEXT           "已修改（不可写）",IDC_STATIC,242,41,60,8
+    LTEXT           "已释放",IDC_STATIC,242,21,25,8
+    LTEXT           "已修改(不可写)",IDC_STATIC,242,41,70,8
     RTEXT           "Static",IDC_ZLISTMODIFIEDNOWRITE_V,303,41,48,8,SS_ENDELLIPSIS
     LTEXT           "Standby",IDC_STATIC,242,61,28,8
     LTEXT           "Priority 0",IDC_STATIC,251,71,30,8
