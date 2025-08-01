@@ -275,9 +275,9 @@ VOID NTAPI PhpPurgeStandbyListCommand(
     status = PhpMemoryListCommandCommon(ParentWindow, MemoryPurgeStandbyList);
 
     if (NT_SUCCESS(status))
-        *Message = PhCreateString(L"Standby lists emptied.");
+        *Message = PhCreateString(L"待用内存列表已清空。");
     else
-        *Message = PhpCreateCommandStatusString(L"Unable to empty standby lists.", status);
+        *Message = PhpCreateCommandStatusString(L"无法清空待用内存列表", status);
 }
 
 _Function_class_(PH_MEMORY_LIST_COMMAND_CALLBACK)
