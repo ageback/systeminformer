@@ -308,7 +308,7 @@ VOID NTAPI ShowOptionsCallback(
     PPH_PLUGIN_OPTIONS_POINTERS optionsEntry = (PPH_PLUGIN_OPTIONS_POINTERS)Parameter;
 
     optionsEntry->CreateSection(
-        L"UserNotes",
+        L"用户备注",
         PluginInstance->DllBase,
         MAKEINTRESOURCE(IDD_OPTIONS),
         OptionsDlgProc,
@@ -2433,14 +2433,14 @@ VOID ProcessMenuInitializingCallback(
         highlightPresent = TRUE;
     UnlockDb();
 
-    PhInsertEMenuItem(miscMenuItem, collapseMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_COLLAPSE_ID, L"Col&lapse by default", NULL), 0);
-    PhInsertEMenuItem(miscMenuItem, highlightMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_HIGHLIGHT_ID, L"Highligh&t", UlongToPtr(highlightPresent)), 1);
+    PhInsertEMenuItem(miscMenuItem, collapseMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_COLLAPSE_ID, L"默认折叠(&L)", NULL), 0);
+    PhInsertEMenuItem(miscMenuItem, highlightMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_HIGHLIGHT_ID, L"高亮显示(&T)", UlongToPtr(highlightPresent)), 1);
     PhInsertEMenuItem(miscMenuItem, PhCreateEMenuSeparator(), 2);
 
     if (gdiHandlesMenuItem = PhFindEMenuItem(miscMenuItem, 0, NULL, PHAPP_ID_MISCELLANEOUS_GDIHANDLES))
     {
         ULONG index = PhIndexOfEMenuItem(miscMenuItem, gdiHandlesMenuItem);
-        PhInsertEMenuItem(miscMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_D3DKMT_ID, L"Graphics priority...", NULL), index + 1);
+        PhInsertEMenuItem(miscMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_D3DKMT_ID, L"图形优先级...", NULL), index + 1);
     }
 
     LockDb();

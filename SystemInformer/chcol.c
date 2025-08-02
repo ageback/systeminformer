@@ -235,7 +235,7 @@ INT_PTR CALLBACK PhpColumnsDlgProc(
             PhCreateSearchControl(
                 hwndDlg,
                 context->SearchInactiveHandle,
-                L"Inactive columns...",
+                L"未激活的列...",
                 PhpInactiveColumnsSearchControlCallback,
                 context
                 );
@@ -243,7 +243,7 @@ INT_PTR CALLBACK PhpColumnsDlgProc(
             PhCreateSearchControl(
                 hwndDlg,
                 context->SearchActiveHandle,
-                L"Active columns...",
+                L"激活的列...",
                 PhpActiveColumnsSearchControlCallback,
                 context
                 );

@@ -115,7 +115,7 @@ VOID PhpUpdateStatisticsAddListViewGroups(
     IListView_EnableGroupView(Context->ListView, TRUE);
 
     PhAddIListViewGroup(Context->ListView, PH_PROCESS_STATISTICS_CATEGORY_CPU, L"CPU");
-    PhAddIListViewGroup(Context->ListView, PH_PROCESS_STATISTICS_CATEGORY_MEMORY, L"Memory");
+    PhAddIListViewGroup(Context->ListView, PH_PROCESS_STATISTICS_CATEGORY_MEMORY, L"内存");
     PhAddIListViewGroup(Context->ListView, PH_PROCESS_STATISTICS_CATEGORY_IO, L"I/O");
     PhAddIListViewGroup(Context->ListView, PH_PROCESS_STATISTICS_CATEGORY_OTHER, L"Other");
 

@@ -78,7 +78,7 @@ VOID PhShowSystemInformationDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&PhSipThread, PhSipSysInfoThreadStart, NULL)))
         {
-            PhShowStatus(PhMainWndHandle, L"Unable to create the window.", 0, ERROR_OUTOFMEMORY);
+            PhShowStatus(PhMainWndHandle, L"无法创建窗口。", 0, ERROR_OUTOFMEMORY);
             return;
         }
 
@@ -394,7 +394,7 @@ VOID PhSipOnInitDialog(
     CurrentSection = NULL;
 
     PhSipCreateInternalSection(L"CPU", 0, PhSipCpuSectionCallback);
-    PhSipCreateInternalSection(L"Memory", 0, PhSipMemorySectionCallback);
+    PhSipCreateInternalSection(L"内存", 0, PhSipMemorySectionCallback);
     PhSipCreateInternalSection(L"I/O", 0, PhSipIoSectionCallback);
 
     if (PhPluginsEnabled)
@@ -1467,7 +1467,7 @@ VOID PhSipDrawRestoreSummaryPanel(
     }
 
     SelectFont(bufferDc, CurrentParameters.MediumFont);
-    DrawText(bufferDc, L"Back", 4, &bufferRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+    DrawText(bufferDc, L"退回", 4, &bufferRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
     BitBlt(
         hdc,

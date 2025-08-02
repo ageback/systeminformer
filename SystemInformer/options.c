@@ -197,8 +197,8 @@ static VOID PhpOptionsShowHideTreeViewItem(
     _In_ BOOLEAN Hide
     )
 {
-    static CONST PH_STRINGREF generalName = PH_STRINGREF_INIT(L"General");
-    static CONST PH_STRINGREF advancedName = PH_STRINGREF_INIT(L"Advanced");
+    static CONST PH_STRINGREF generalName = PH_STRINGREF_INIT(L"常规");
+    static CONST PH_STRINGREF advancedName = PH_STRINGREF_INIT(L"高级");
 
     if (Hide)
     {

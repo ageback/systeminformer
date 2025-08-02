@@ -392,7 +392,7 @@ BOOLEAN PhSipMemorySectionCallback(
                 usedPages = totalPages - PhPerfInformation.AvailablePages;
             }
 
-            drawPanel->Title = PhCreateString(L"Memory");
+            drawPanel->Title = PhCreateString(L"内存");
 
             // %.0f%%\n%s / %s
             PhInitFormatF(&format[0], ((FLOAT)usedPages / (FLOAT)totalPages) * 100, 0);
@@ -510,7 +510,7 @@ INT_PTR CALLBACK PhSipMemoryDialogProc(
             if (NT_SUCCESS(PhGetPhysicallyInstalledSystemMemory(&InstalledMemory, &ReservedMemory)))
             {
                 PhSetWindowText(totalPhysicalLabel, PhaConcatStrings2(
-                    PhaFormatSize(InstalledMemory, ULONG_MAX)->Buffer, L" installed")->Buffer);
+                    PhaFormatSize(InstalledMemory, ULONG_MAX)->Buffer, L" 已安装")->Buffer);
             }
             else
             {

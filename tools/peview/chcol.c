@@ -286,7 +286,7 @@ INT_PTR CALLBACK PvColumnsDlgProc(
             PvCreateSearchControl(
                 hwndDlg,
                 context->SearchInactiveHandle,
-                L"Inactive columns...",
+                L"未激活的列...",
                 PvpInactiveColumnsSearchControlCallback,
                 context
                 );
@@ -294,7 +294,7 @@ INT_PTR CALLBACK PvColumnsDlgProc(
             PvCreateSearchControl(
                 hwndDlg,
                 context->SearchActiveHandle,
-                L"Active columns...",
+                L"激活的列...",
                 PvpActiveColumnsSearchControlCallback,
                 context
                 );
