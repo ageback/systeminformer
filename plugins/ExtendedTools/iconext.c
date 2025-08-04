@@ -905,7 +905,7 @@ BOOLEAN EtpNetworkIconMessageCallback(
         {
             PPH_NF_MSG_SHOWMINIINFOSECTION_DATA data = (PVOID)WParam;
 
-            data->SectionName = L"Network";
+            data->SectionName = L"网络";
         }
         return TRUE;
     }
@@ -1950,7 +1950,7 @@ BOOLEAN EtpToolbarNetworkHistoryGraphMessageCallback(
             {
                 if (PhGetIntegerSetting(SETTING_NAME_SHOWSYSINFOGRAPH))
                 {
-                    PhShowSystemInformationDialog(L"Network");
+                    PhShowSystemInformationDialog(L"网络");
                 }
                 else
                 {

@@ -872,7 +872,7 @@ BOOLEAN PhysicalHistoryGraphMessageCallback(
             {
                 if (PhGetIntegerSetting(SETTING_NAME_SHOWSYSINFOGRAPH))
                 {
-                    PhShowSystemInformationDialog(L"Memory");
+                    PhShowSystemInformationDialog(L"内存");
                 }
             }
         }
@@ -967,7 +967,7 @@ BOOLEAN CommitHistoryGraphMessageCallback(
             {
                 if (PhGetIntegerSetting(SETTING_NAME_SHOWSYSINFOGRAPH))
                 {
-                    PhShowSystemInformationDialog(L"Memory");
+                    PhShowSystemInformationDialog(L"内存");
                 }
             }
         }

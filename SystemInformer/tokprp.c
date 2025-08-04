@@ -2698,7 +2698,7 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
             IListView_EnableGroupView(context->ListView, TRUE);
             PhAddIListViewGroup(context->ListView, listViewGroupIndex++, L"General");
             PhAddIListViewGroup(context->ListView, listViewGroupIndex++, L"LUIDs");
-            PhAddIListViewGroup(context->ListView, listViewGroupIndex++, L"Memory");
+            PhAddIListViewGroup(context->ListView, listViewGroupIndex++, L"内存");
             PhAddIListViewGroup(context->ListView, listViewGroupIndex++, L"Properties");
             PhAddIListViewGroupItem(context->ListView, 0, MAXINT, L"Type", NULL);
             PhAddIListViewGroupItem(context->ListView, 0, MAXINT, L"Impersonation level", NULL);

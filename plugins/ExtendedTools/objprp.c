@@ -881,7 +881,7 @@ PCWSTR EtMapSessionConnectState(
         SIP(L"Disconnected", State_Disconnected),
         SIP(L"Idle", State_Idle),
         SIP(L"Listen", State_Listen),
-        SIP(L"Reset", State_Reset),
+        SIP(L"重置", State_Reset),
         SIP(L"Down", State_Down),
         SIP(L"Init", State_Init)
     };
