@@ -3743,7 +3743,7 @@ VOID PhUiNavigateServiceErrorDialogPage(
 {
     static CONST TASKDIALOG_BUTTON buttons[1] =
     {
-        { IDNO, L"Close" }
+        { IDNO, L"关闭" }
     };
     static CONST TASKDIALOG_BUTTON buttonsElevation[2] =
     {

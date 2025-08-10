@@ -1092,7 +1092,7 @@ VOID PhSipUpdateMemoryPanel(
         if (paged != MAXSIZE_T)
             pagedLimit = PhaFormatSize(paged, ULONG_MAX)->Buffer;
         else
-            pagedLimit = KsiLevel() ? L"no symbols" : L"no driver";
+            pagedLimit = KsiLevel() ? L"没有符号文件" : L"没有驱动";
 
         if (nonPaged != MAXSIZE_T)
             nonPagedLimit = PhaFormatSize(nonPaged, ULONG_MAX)->Buffer;
@@ -1103,12 +1103,12 @@ VOID PhSipUpdateMemoryPanel(
     {
         if (KsiLevel())
         {
-            pagedLimit = L"no symbols";
+            pagedLimit = L"没有符号文件";
             nonPagedLimit = L"N/A";
         }
         else
         {
-            pagedLimit = L"no driver";
+            pagedLimit = L"没有驱动";
             nonPagedLimit = L"N/A";
         }
     }

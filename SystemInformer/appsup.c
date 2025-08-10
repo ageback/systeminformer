@@ -2266,7 +2266,7 @@ BOOLEAN PhpSelectFavoriteInRegedit(
     else
         SendMessage(RegeditWindow, WM_COMMAND, MAKEWPARAM(id, 0), 0);
 
-    // "Close" the Favorites menu and restore normal status bar text.
+    // "关闭" the Favorites menu and restore normal status bar text.
     if (UsePhSvc)
         PhSvcCallPostMessage(RegeditWindow, WM_MENUSELECT, MAKEWPARAM(0, 0xffff), 0);
     else
