@@ -1089,7 +1089,7 @@ LRESULT CALLBACK PhpSearchWndSubclassProc(
 
             if (context->RegexButton.Hot)
             {
-                PhpSearchControlCreateTooltip(context, &context->RegexButton, WindowHandle, &buttonRect, L"Use Regular Expression");
+                PhpSearchControlCreateTooltip(context, &context->RegexButton, WindowHandle, &buttonRect, L"使用正则表达式");
             }
 
             PhpSearchControlButtonRect(context, &context->CaseButton, &windowRect, &buttonRect);
@@ -1097,7 +1097,7 @@ LRESULT CALLBACK PhpSearchWndSubclassProc(
 
             if (context->CaseButton.Hot)
             {
-                PhpSearchControlCreateTooltip(context, &context->CaseButton, WindowHandle, &buttonRect, L"Match Case");
+                PhpSearchControlCreateTooltip(context, &context->CaseButton, WindowHandle, &buttonRect, L"匹配大小写");
             }
 
             PhpSearchControlButtonRect(context, &context->SearchButton, &windowRect, &buttonRect);
@@ -1105,7 +1105,7 @@ LRESULT CALLBACK PhpSearchWndSubclassProc(
 
             if (context->SearchButton.Hot)
             {
-                PhpSearchControlCreateTooltip(context, &context->SearchButton, WindowHandle, &buttonRect, L"Clear Search");
+                PhpSearchControlCreateTooltip(context, &context->SearchButton, WindowHandle, &buttonRect, L"清除搜索");
             }
 
             // Check that the mouse is within the inserted button.

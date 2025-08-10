@@ -341,6 +341,8 @@ namespace CustomBuildTool
 
             if (string.IsNullOrWhiteSpace(previousId) || !previousId.Equals(currentId, StringComparison.OrdinalIgnoreCase))
             {
+                PrintColorMessage($"PreviousId:{previousId}", ConsoleColor.Yellow);
+                PrintColorMessage($"CurrentId:{currentId}", ConsoleColor.Yellow);
                 PrintColorMessage($"[WARNING] Build tools are out of date!", ConsoleColor.Yellow);
             }
 #endif
