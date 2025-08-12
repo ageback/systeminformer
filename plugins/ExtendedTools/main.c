@@ -251,7 +251,7 @@ VOID NTAPI MainMenuInitializingCallback(
     if (menuInfo->u.MainMenu.SubMenuIndex != PH_MENU_ITEM_LOCATION_TOOLS)
         return;
 
-    if (!(systemMenu = PhFindEMenuItem(menuInfo->Menu, 0, L"System", 0)))
+    if (!(systemMenu = PhFindEMenuItem(menuInfo->Menu, 0, L"系统", 0)))
     {
         PhInsertEMenuItem(menuInfo->Menu, systemMenu = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"系统(&S)", NULL), ULONG_MAX);
     }
