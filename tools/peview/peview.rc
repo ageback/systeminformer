@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 英语(美国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -25,17 +25,17 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""winres.h""\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
     "\0"
 END
@@ -140,9 +140,7 @@ BEGIN
     IDD_STRINGSMINLEN, DIALOG
     BEGIN
         LEFTMARGIN, 3
-        RIGHTMARGIN, 298
         TOPMARGIN, 3
-        BOTTOMMARGIN, 277
     END
 
     IDD_ELFGENERAL, DIALOG
@@ -531,7 +529,7 @@ END
 
 IDD_ELFGENERAL DIALOGEX 0, 0, 300, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "General"
+CAPTION "常规"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Target machine:",IDC_STATIC,7,60,53,8
@@ -544,8 +542,8 @@ BEGIN
     LTEXT           "Static",IDC_IMAGEBASE,78,87,215,8
     LTEXT           "Image type:",IDC_STATIC,7,73,40,8
     LTEXT           "Static",IDC_IMAGETYPE,78,73,215,8
-    ICON            "",IDC_FILEICON,14,18,21,20
-    GROUPBOX        "File",IDC_FILE,7,7,286,48
+    ICON            "",IDC_FILEICON,14,18,20,20
+    GROUPBOX        "文件",IDC_FILE,7,7,286,48
     EDITTEXT        IDC_NAME,44,17,242,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     LTEXT           "Version:",IDC_STATIC,15,41,27,8
     EDITTEXT        IDC_VERSION,44,41,242,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
@@ -594,7 +592,7 @@ END
 
 IDD_ELFDYNAMIC DIALOGEX 0, 0, 300, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dynamic"
+CAPTION "动态"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,3,294,274
@@ -793,7 +791,7 @@ END
 
 IDD_ELFEXPORTS DIALOGEX 0, 0, 300, 280
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Exports"
+CAPTION "导出"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,3,294,274
@@ -839,16 +837,25 @@ IDB_SEARCH_INACTIVE_BMP BITMAP                  "resources\\inactive_search.bmp"
 // PNG
 //
 
-IDB_SEARCH_ACTIVE                PNG            "resources\\active_search.png"
-IDB_SEARCH_INACTIVE              PNG            "resources\\inactive_search.png"
-IDB_SEARCH_REGEX_MODERN_DARK     PNG            "resources\\regex_modern_dark.png"
-IDB_SEARCH_REGEX_MODERN_LIGHT    PNG            "resources\\regex_modern_light.png"
-IDB_SEARCH_CASE_MODERN_DARK      PNG            "resources\\case_sensitive_modern_dark.png"
-IDB_SEARCH_CASE_MODERN_LIGHT     PNG            "resources\\case_sensitive_modern_light.png"
-IDB_SEARCH_ACTIVE_MODERN_LIGHT   PNG            "resources\\search_stop_modern_light.png"
-IDB_SEARCH_ACTIVE_MODERN_DARK    PNG            "resources\\search_stop_modern_dark.png"
-IDB_SEARCH_INACTIVE_MODERN_LIGHT PNG            "resources\\search_modern_light.png"
-IDB_SEARCH_INACTIVE_MODERN_DARK  PNG            "resources\\search_modern_dark.png"
+IDB_SEARCH_ACTIVE       PNG                     "resources\\active_search.png"
+
+IDB_SEARCH_INACTIVE     PNG                     "resources\\inactive_search.png"
+
+IDB_SEARCH_REGEX_MODERN_DARK PNG                     "resources\\regex_modern_dark.png"
+
+IDB_SEARCH_REGEX_MODERN_LIGHT PNG                     "resources\\regex_modern_light.png"
+
+IDB_SEARCH_CASE_MODERN_DARK PNG                     "resources\\case_sensitive_modern_dark.png"
+
+IDB_SEARCH_CASE_MODERN_LIGHT PNG                     "resources\\case_sensitive_modern_light.png"
+
+IDB_SEARCH_ACTIVE_MODERN_LIGHT PNG                     "resources\\search_stop_modern_light.png"
+
+IDB_SEARCH_ACTIVE_MODERN_DARK PNG                     "resources\\search_stop_modern_dark.png"
+
+IDB_SEARCH_INACTIVE_MODERN_LIGHT PNG                     "resources\\search_modern_light.png"
+
+IDB_SEARCH_INACTIVE_MODERN_DARK PNG                     "resources\\search_modern_dark.png"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -860,7 +867,28 @@ IDB_SEARCH_INACTIVE_MODERN_DARK  PNG            "resources\\search_modern_dark.p
 // remains consistent on all systems.
 IDI_APPICON             ICON                    "resources\\application.ico"
 
-#endif    // English (United States) resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ELFDYNAMIC AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ELFEXPORTS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ELFGENERAL AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
